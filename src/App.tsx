@@ -1,24 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import { useAppSelector } from "./hooks/storeHook";
 
 function App() {
+  const { darkTheme } = useAppSelector((state) => state);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkTheme ? "dark" : ""}>
+      <div className="dark:bg-red-900 dark:text-white min-h-screen px-4 lg:px-12 pb-20">
+        <Header />
+      </div>
     </div>
   );
 }
